@@ -13,10 +13,10 @@ import java.util.Date;
 @Component
 public class JWTUtils {
     private static final Logger logger = LoggerFactory.getLogger(JWTUtils.class);
-    @Value("${myapp.jwtSecret}") //ganti ini nanti
+    @Value("${myapp.jwtSecret}")
     private String jwtSecret;
 
-    @Value("${myapp.jwtExpirationMs}") // ganti ini sesuai application properties
+    @Value("${myapp.jwtExpirationMs}")
     private int jwtExpirationMs;
     public String generateJwtToken(Authentication authentication){
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();

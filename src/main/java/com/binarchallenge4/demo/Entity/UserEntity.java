@@ -15,25 +15,23 @@ import static javax.persistence.FetchType.EAGER;
 @Getter
 @Setter
 @Entity
-//Ubah
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name= "username")
+@Table(name= "Username")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "Id")
     private long user_id;
     @Column(name = "Username")
     private String username;
-    @Column(name = "password")
+    @Column(name = "Password")
     private String password;
-    @Column(name = "email")
+    @Column(name = "Email")
     private String email;
 
     @ManyToMany(fetch = EAGER)
     private Collection<RoleEntity> roles = new ArrayList<>();
-    //Ubah
     public UserEntity(String username, String email, String password) {
         this.username = username;
         this.email = email;

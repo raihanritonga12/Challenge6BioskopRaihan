@@ -36,7 +36,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name= "tabel_film")
+@Table(name= "Film")
 
 public class FilmEntity {
     @Id
