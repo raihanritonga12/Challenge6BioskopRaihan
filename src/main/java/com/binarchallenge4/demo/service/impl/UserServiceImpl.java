@@ -1,6 +1,6 @@
 package com.binarchallenge4.demo.service.impl;
 
-import com.binarchallenge4.demo.Entity.UserEntity;
+import com.binarchallenge4.demo.entity.UserEntity;
 import com.binarchallenge4.demo.service.UserService;
 import org.springframework.stereotype.Service;
 import com.binarchallenge4.demo.repository.UserRepository;
@@ -18,30 +18,28 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserEntity> CariSemuaUser() {
+    public List<UserEntity> cariSemuaUser() {
         return userRepository.findAll();
     }
 
     @Override
-    public Optional<UserEntity> CariDariID(Long user_id) {
-        return userRepository.findById(user_id);
+    public Optional<UserEntity> cariDariID(Long userId) {
+        return userRepository.findById(userId);
     }
 
     @Override
-    public UserEntity SimpanUser(UserEntity userEntity) {
+    public UserEntity simpanUser(UserEntity userEntity) {
         return userRepository.save(userEntity);
     }
 
     @Override
     public UserEntity updateUser(Long id,UserEntity userEntity) {
-        UserEntity UserEntityUpdate=userRepository.findById(id).get();
-        UserEntityUpdate.setUsername(userEntity.getUsername());
-        UserEntityUpdate.setPassword(userEntity.getPassword());
-        UserEntityUpdate.setEmail(userEntity.getEmail());
-        return userRepository.save(UserEntityUpdate);
+        UserEntity userEntityUpdate=userRepository.findById(id).get();
+        userEntityUpdate.setUsername(userEntity.getUsername());
+        userEntityUpdate.setPassword(userEntity.getPassword());
+        userEntityUpdate.setEmail(userEntity.getEmail());
+        return userRepository.save(userEntityUpdate);
     }
-
-
 
     @Override
     public String deleteUser(Long id) {

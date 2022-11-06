@@ -1,6 +1,6 @@
 package com.binarchallenge4.demo.service;
 
-import com.binarchallenge4.demo.Entity.ContohEntity;
+import com.binarchallenge4.demo.entity.ContohEntity;
 import com.lowagie.text.DocumentException;
 import net.sf.jasperreports.engine.JRException;
 import java.io.FileNotFoundException;

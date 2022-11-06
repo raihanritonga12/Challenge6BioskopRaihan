@@ -1,5 +1,5 @@
 package com.binarchallenge4.demo.repository;
-import com.binarchallenge4.demo.Entity.UserEntity;
+import com.binarchallenge4.demo.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

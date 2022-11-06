@@ -1,6 +1,6 @@
 package com.binarchallenge4.demo.service.impl;
 
-import com.binarchallenge4.demo.Entity.ContohEntity;
+import com.binarchallenge4.demo.entity.ContohEntity;
 import com.binarchallenge4.demo.service.ContohService;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.*;
@@ -24,8 +24,8 @@ public class ContohServiceImpl implements ContohService {
         data.put("studio","Studio 1");
         data.put("kursi","D-5");
         data.put("jadwal","28/10/2022 , Pukul 10.00 WIB");
-        InputStream ReportStream = getClass().getResourceAsStream("/Laporan.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(ReportStream);
+        InputStream reportStream = getClass().getResourceAsStream("/Laporan.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(reportStream);
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, data);
         byte[] file = JasperExportManager.exportReportToPdf(jasperPrint);

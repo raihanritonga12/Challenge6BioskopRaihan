@@ -1,6 +1,6 @@
 package com.binarchallenge4.demo.service.impl;
 
-import com.binarchallenge4.demo.Entity.FilmEntity;
+import com.binarchallenge4.demo.entity.FilmEntity;
 import com.binarchallenge4.demo.repository.FilmRepository;
 import com.binarchallenge4.demo.service.FilmService;
 import org.springframework.stereotype.Service;
@@ -23,8 +23,8 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
-    public Optional<FilmEntity> CariDariID(Long user_id) {
-        return filmRepository.findById(user_id);
+    public Optional<FilmEntity> cariDariID(Long userId) {
+        return filmRepository.findById(userId);
     }
 
     @Override
@@ -34,12 +34,12 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public FilmEntity updateFilm(Long id, FilmEntity filmEntity) {
-        FilmEntity FilmEntityUpdate=filmRepository.findById(id).get();
-        FilmEntityUpdate.setNama_film(filmEntity.getNama_film());
-        FilmEntityUpdate.setStatus_film(filmEntity.getStatus_film());
-        FilmEntityUpdate.setDurasi(filmEntity.getDurasi());
-        FilmEntityUpdate.setGenre(filmEntity.getGenre());
-        return filmRepository.save(FilmEntityUpdate);
+        FilmEntity filmEntityUpdate=filmRepository.findById(id).get();
+        filmEntityUpdate.setNamaFilm(filmEntity.getNamaFilm());
+        filmEntityUpdate.setStatusFilm(filmEntity.getStatusFilm());
+        filmEntityUpdate.setDurasi(filmEntity.getDurasi());
+        filmEntityUpdate.setGenre(filmEntity.getGenre());
+        return filmRepository.save(filmEntityUpdate);
     }
     public String deleteFilm(Long id) {
         filmRepository.deleteById(id);
