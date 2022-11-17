@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.validation.Valid;
-
 import com.binarchallenge4.demo.entity.ERoles;
 import com.binarchallenge4.demo.entity.RoleEntity;
 import com.binarchallenge4.demo.entity.UserEntity;
@@ -16,6 +15,10 @@ import com.binarchallenge4.demo.security.JWTUtils;
 import com.binarchallenge4.demo.security.impl.UserDetailsImpl;
 import com.binarchallenge4.demo.repository.RoleRepository;
 import com.binarchallenge4.demo.repository.UserRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -50,6 +53,16 @@ public class AuthController {
 
     @Autowired
     JWTUtils jwtUtils;
+
+    @Operation(summary="Ini Untuk Login")
+    @ApiResponses(value ={
+            @ApiResponse(responseCode = "200",
+                    description = "Login Berhasil",
+                    content = {@Content(mediaType="application/json")}),
+            @ApiResponse(responseCode = "404",
+                    description = "Gagal Login",
+                    content = @Content)
+    })
 
     @PostMapping("/Masuk")
     public ResponseEntity<Object> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {

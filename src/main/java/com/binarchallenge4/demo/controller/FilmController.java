@@ -3,6 +3,10 @@ package com.binarchallenge4.demo.controller;
 
 import com.binarchallenge4.demo.entity.FilmEntity;
 import com.binarchallenge4.demo.service.FilmService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +18,16 @@ import java.util.List;
 public class FilmController {
     @Autowired
     FilmService filmService;
+
+    @Operation(summary="Memasukkan film baru,mengambil semua film,memperbarui film,menghapus film")
+    @ApiResponses(value ={
+            @ApiResponse(responseCode = "200",
+                    description = "Berhasil mengedit film",
+                    content = {@Content(mediaType="application/json")}),
+            @ApiResponse(responseCode = "404",
+                    description = "Gagal mengedit film",
+                    content = @Content)
+    })
 
     @PostMapping("/buat")
     @ResponseStatus(HttpStatus.CREATED)
